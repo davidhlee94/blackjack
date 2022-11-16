@@ -27,11 +27,23 @@ creatingDeck();
 
 //Drawing a random card
 function drawRandomCard(deck) {
-    const random = Math.floor((Math.random() * deck.length) + 1);
-    let card = deck.splice(random, 1)
-    return card
+    let randomIndex = Math.floor((Math.random() * deck.length) + 1);
+    let card = deck.splice(randomIndex, 1);
+    return card;
 }
-console.log(drawRandomCard(deck));
+drawRandomCard(deck);
+console.log(deck)
+
+
+const deal = () => {
+    playerHand = [drawRandomCard(deck) + ", " + drawRandomCard(deck)]
+    dealerHand = [drawRandomCard(deck) + ", " + drawRandomCard(deck)]
+}
+deal();
+
+
+
+
 
 
 // //Start of the game
@@ -46,8 +58,8 @@ console.log(drawRandomCard(deck));
 
 
 // //Giving the card to the player and dealer
-// document.getElementById('dealer-hand').innerText = 'Dealer hand: ' + dealerHand;
-// document.getElementById('player-hand').innerText = 'Player hand: ' + playerHand;
+document.getElementById('dealer-hand').innerText = 'Dealer hand: ' + dealerHand;
+document.getElementById('player-hand').innerText = 'Player hand: ' + playerHand;
 
 // //Event listeners
 // hit.addEventListener('click', hitButton());
