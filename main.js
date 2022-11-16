@@ -7,29 +7,38 @@
 // const stay = document.getElementById('stay-btn')
 // const reset = document.getElementById('reset-btn')
 
-//Card Suits and values
+const dealerTotal = 0;
+const playerTotal = 0;
 
+
+//Card Suits and values
 const suit = ['♥', '♦', '♠', '♣']
 const value = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
 
 
+//Creating a deck
 let deck = [];
 function creatingDeck() {
     for(let i = 0; i < suit.length; i++){
         for(let j = 0; j < value.length; j++){
         deck.push(value[j] + " of " + suit[i])
         }
-    } console.log(deck)
+    } return(deck)
 }
 creatingDeck();
 
-console.log(deck[Math.floor(Math.random() * deck.length)])
+
+//Drawing a random card
+function drawRandomCard(deck) {
+    const random = Math.floor(Math.random() * deck.length);
+    return deck[random]
+}
+console.log(drawRandomCard(deck))
 
 
-// function randomCard(){
-//     let randomSuit = suits[Math.floor(Math.random() * suits.length)];
-//     let randomValue = value[Math.floor(Math.random() * value.length)];
-//     let cardSelected = `${randomValue} of ${randomSuit}`;
-//     console.log(cardSelected);
-// }
-// console.log(randomCard())
+//Start of the game
+function start(){
+    playerHand = [drawRandomCard(deck), drawRandomCard(deck)]
+    dealerHand = [drawRandomCard(deck), drawRandomCard(deck)]
+}
+
