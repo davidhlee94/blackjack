@@ -7,14 +7,14 @@
 // const stay = document.getElementById('stay-btn')
 // const reset = document.getElementById('reset-btn')
 
-const dealerTotal = 0;
-const playerTotal = 0;
-
 
 //Card Suits and values
 const suit = ['♥', '♦', '♠', '♣']
 const value = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
 
+
+var playerHand;
+var dealerHand;
 
 //Creating a deck
 let deck = [];
@@ -33,7 +33,7 @@ function drawRandomCard(deck) {
     const random = Math.floor(Math.random() * deck.length);
     return deck[random]
 }
-console.log(drawRandomCard(deck))
+console.log(drawRandomCard(deck));
 
 
 //Start of the game
@@ -41,4 +41,22 @@ function start(){
     playerHand = [drawRandomCard(deck), drawRandomCard(deck)]
     dealerHand = [drawRandomCard(deck), drawRandomCard(deck)]
 }
+start();
+// console.log('Player Hand: ' + playerHand);
+// console.log('Dealer Hand: ' + dealerHand);
 
+
+// //Hit
+// function hitButton(){
+//     playerHand.push(drawRandomCard(deck));
+
+// }
+
+//Giving the card to the player and dealer
+document.getElementById('dealer-hand').innerText = 'Dealer hand: ' + dealerHand;
+document.getElementById('player-hand').innerText = 'Player hand: ' + playerHand;
+
+// //Event listeners
+// hit.addEventListener('click', hitButton());
+// stay.addEventListener('click', stayButton());
+// reset.addEventListener('click', resetButton());
