@@ -14,54 +14,70 @@ const newGame = document.getElementById('newgame-btn')
 
 
 //Card Suits and rank
-const deckOfCards = {
-    suit: ['♥', '♦', '♠', '♣'],
-    rank: [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
-    deck: []
+let suit = ['♥', '♦', '♠', '♣'];
+let rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+let deck = [];
+
+
+//Player
+const playerInfo = {
+    hand: [],
+    total: 0
 }
 
-
-
+//Dealer
+const dealerInfo = {
+    hand: [],
+    total: 0
+}
 
 
 
 //Creating a deck in order
 function creatingDeck() {
-    for(let i = 0; i < deckOfCards.suit.length; i++){
-        for(let j = 0; j < deckOfCards.rank.length; j++){
-        deckOfCards.deck.push(deckOfCards.rank[j] + deckOfCards.suit[i])
+    for(let i = 0; i < suit.length; i++){
+        for(let j = 0; j < rank.length; j++){
+        deck.push(rank[j] + suit[i])
         }
-    } return(deckOfCards.deck)
+    } return(deck)
 }
 creatingDeck();
 
 
-
 // //Drawing a random card
 function drawRandomCard() {
-    let randomIndex = Math.floor((Math.random() * deckOfCards.deck.length));
-    let card = deckOfCards.deck[randomIndex]
-    return card //returns the random card
+    let randomIndex = Math.floor((Math.random() * deck.length));
+    let card = deck[randomIndex]
+    return card
 }
-
-
-// //Random suit generator
-// function randomSuitGenerator(){
-//     let randomSuit = Math.floor(Math.random() * suit.length)
-//     let rSuit = suit[randomSuit]
-//     return rSuit
-// }
-
-//Global Variables of dealerHand and playerHand
-let dealerHand = [];
-let playerHand = [];
 
 //Function of dealing cards to each hand
 function deal(){
-    dealerHand = [drawRandomCard(), drawRandomCard()]
-    playerHand = [drawRandomCard(), drawRandomCard()]
+    dealerInfo.hand = [drawRandomCard(), drawRandomCard()]
+    playerInfo.hand = [drawRandomCard(), drawRandomCard()]
+    dealer.innerText = 'Dealer Hand: ' + dealerInfo.hand;
+    player.innerText = 'Player Hand: ' + playerInfo.hand;
+    
 } 
-newGame.addEventListener('click', deal);
+deal();
+
+
+
+function calcPlayerTotal(){
+    let playerTotal = 0
+    for(i = 0; i < playerInfo.hand.length; i++){
+        if (playerInfo.hand[i].includes('J') || playerInfo.hand[i].includes('Q') || playerInfo.hand[i].includes('K')){
+            playerTotal += 10;
+        } else if (playerInfo.hand[i].includes('A')){
+            playerTotal += 11;
+        } else {
+            playerTotal += parseInt(playerInfo.hand[i])
+        }
+        playerInfo.total = playerTotal
+    } return playerInfo.total
+}
+
+
 
 
 
