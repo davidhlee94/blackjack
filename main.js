@@ -11,6 +11,17 @@ const hitDealerBtn = document.getElementById('hit-d-btn')
 const standDealerBtn = document.getElementById('stand-d-btn')
 const newGame = document.getElementById('newgame-btn')
 
+const modal = document.querySelector('#modal')
+const openModal = document.querySelector('.open-button')
+const closeModal = document.querySelector('.close-button')
+
+openModal.addEventListener('click', () => {
+    modal.showModal();
+})
+
+closeModal.addEventListener('click', () => {
+    modal.close();
+})
 
 //Card Suits and rank
 let suit = ['♥', '♦', '♠', '♣'];
@@ -77,7 +88,7 @@ function calcPlayerTotal(){
         playerInfo.total = playerTotal
     } playerT.innerText = playerInfo.total;
     if (playerInfo.total === 21){
-        playerT.innerText = 'Blackjack 21! Player wins.'}
+        playerT.innerText = 'BlackJack 21! Player wins.'}
     return playerInfo.total
 }
 newGame.addEventListener('click', calcPlayerTotal);
@@ -97,7 +108,7 @@ function calcDealerTotal(){
         dealerInfo.total = dealerTotal
     } dealerT.innerText = dealerInfo.total;
     if (dealerInfo.total === 21){
-        dealerT.innerText = 'Blackjack 21! Dealer wins.'}
+        dealerT.innerText = 'BlackJack 21! Dealer wins.'}
     return dealerInfo.total
 }
 newGame.addEventListener('click', calcDealerTotal);
@@ -110,7 +121,7 @@ function hitPlayer(){
     if(playerInfo.total > 21){
         playerT.innerText = `Player busted at ${playerInfo.total}! Dealer wins.` 
     } else if (playerInfo.total === 21){
-        playerT.innerText = 'Blackjack 21! Dealer Wins.' 
+        playerT.innerText = 'BlackJack 21! Dealer Wins.' 
     }
 }
 hitPlayerBtn.addEventListener('click', hitPlayer)
@@ -123,7 +134,7 @@ function hitDealer(){
     if(dealerInfo.total > 21){
         dealerT.innerText = `Dealer busted at ${dealerInfo.total}! Player wins.` 
     } else if (dealerInfo.total === 21){
-        dealerT.innerText = 'Blackjack 21! Dealer Wins.' 
+        dealerT.innerText = 'BlackJack 21! Dealer Wins.' 
     }
 }
 hitDealerBtn.addEventListener('click', hitDealer)
@@ -139,75 +150,3 @@ function standDealer() {
 }
 standDealerBtn.addEventListener('click', standDealer);
 
-// let dealerTotal = 0;
-// //Function of adding dealer total and displaying it
-// function dealerTotalF(){
-
-    
-//     if(dealerHand[0] === 'K' || dealerHand[0] === 'Q' || dealerHand[0] === 'J'){
-//         dealerHand[0] = 10
-//     }
-//     if(dealerHand[1] === 'K' || dealerHand[1] === 'Q' || dealerHand[1] === 'J'){
-//         dealerHand[1] = 10
-//     }
-//     if(dealerHand[0] === 'A'){
-//         dealerHand[0] = 11
-//     }
-//     if(dealerHand[1] === 'A'){
-//         dealerHand[1] = 11
-//     }
-//     for (let i = 0; i < dealerHand.length; i++){
-//         dealerTotal += dealerHand[i]
-        
-//     }
-//     dealerT.innerText = 'Dealer Total: ' + dealerTotal;
-//     dealer.innerText = 'Dealer Hand: ' + dealerHand[0] + randomSuitGenerator() + dealerHand[1] + randomSuitGenerator();
-// }
-// newGame.addEventListener('click', dealerTotalF);
-
-
-
-
-// let playerTotal = 0;
-// //Function of adding player total and displaying it
-// function playerTotalF(){
-    
-
-//     if(playerHand[0] === 'K' || playerHand[0] === 'Q' || playerHand[0] === 'J'){
-//         playerHand[0] = 10
-//     }
-//     if(playerHand[1] === 'K' || playerHand[1] === 'Q' || playerHand[1] === 'J'){
-//         playerHand[1] = 10
-//     }
-//     if(playerHand[0] === 'A'){
-//         playerHand[0] = 11
-//     }
-//     if(playerHand[1] === 'A'){
-//         playerHand[1] = 11
-//     }
-//     for (let i = 0; i < playerHand.length; i++){
-//         playerTotal += playerHand[i]
-        
-//     }
-//     playerT.innerText = 'Player Total: ' + playerTotal;
-//     player.innerText = 'Player Hand: ' + playerHand[0] + randomSuitGenerator() + playerHand[1] + randomSuitGenerator();
-    
-        
-// }
-// newGame.addEventListener('click', playerTotalF);
-
-
-
-
-// function hitPlayer(){
-//     playerHand.push(drawRandomCard());
-//     console.log(playerHand)
-// }
-// hitPlayerBtn.addEventListener('click', hitPlayer);
-
-// //Event listeners
-
-
-// hit.addEventListener('click', hitPlayer());
-// stay.addEventListener('click', stayButton());
-// reset.addEventListener('click', resetButton());

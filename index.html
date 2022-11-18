@@ -12,35 +12,22 @@
     <h1 id="blackjackTitle">
         <span style="color:black">Black</span><span style="color: #D2042D">Jack</span>
     </h1>
+    
+    <button class="button open-button">Rules</button>
+    <dialog class="modal" id="modal">
+        <h2>Rules of <span style="color:black">Black</span><span style="color: #D2042D">Jack</span></h2>
+        <p> 1. New game deals 2 cards to the dealer and the player.</p>
+        <p>2. Points totaling 21 win the game.</p>
+        <p>3. If total of 21 is not reached, the person with total closest to 21 wins.</p>
+        <p>4. Hit will add an additional card to hand.</p>
+        <p>5. Stand means you aren't allowed to hit anymore.</p>
+        <p>6. Ace = 11 & Jack, Queen, Kings = 10</p>
+        <button class="button close-button">Close rules</button>
+    </dialog>
 
 
-    <button data-modal-target="#modal">Rules</button>
-    <div class="modal" id="modal">
-      <div class="modal-header">
-        <div class="title">Rules of BlackJack</div>
-        <button data-close-button class="close-button">&times;</button>
-      </div>
-      <div class="modal-body">
-        1. New game deals 2 cards to the dealer and the player.
-        2. Points totaling 21 win the game.
-        3. If total of 21 is not reached, the person with total closest to 21 wins.
-        4. Hit will add an additional card to hand.
-        5. Stand means you aren't allowed to hit anymore.
-        6. A is only equal to 11. Not 1. 
-
-      </div>
-    </div>
-    <div id="overlay"></div>
-
-
-
-
-
-
-    <div class="transparent">
-        
+    <div class="overlay">
         <button id="newgame-btn">New Game</button>
-
         <div class="dealer">
             <h3 id="dealer-hand-text">Dealer Hand</h3>
             <h3 id="dealer"></h3>
@@ -49,7 +36,7 @@
             <button id="hit-d-btn">Hit Dealer</button>
             <button id="stand-d-btn">Stand Dealer</button>
         </div>
-    
+        
         <div class="player">
             <h3 id="player-hand-text">Player Hand:</h3>
             <h3 id="player"></h3>
