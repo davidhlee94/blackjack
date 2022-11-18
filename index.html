@@ -6,28 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
     <script src="main.js" defer></script>
 </head>
+
+    <h1 id="welcome">Welcome to David's Casino</h1>
+
 <body>
     <h1 id="blackjackTitle">
         <span style="color:black">Black</span><span style="color: #D2042D">Jack</span>
     </h1>
     
+
+    <button id="newgame-btn">New Game</button>
     <button class="button open-button">Rules</button>
     <dialog class="modal" id="modal">
         <h2>Rules of <span style="color:black">Black</span><span style="color: #D2042D">Jack</span></h2>
-        <p> 1. New game deals 2 cards to the dealer and the player.</p>
-        <p>2. Points totaling 21 win the game.</p>
-        <p>3. If total of 21 is not reached, the person with total closest to 21 wins.</p>
-        <p>4. Hit will add an additional card to hand.</p>
-        <p>5. Stand means you aren't allowed to hit anymore.</p>
-        <p>6. Ace = 11 & Jack, Queen, Kings = 10</p>
-        <button class="button close-button">Close rules</button>
+            <div id="paragraphs"></div>
+                <p>1. New game deals 2 cards to the dealer and the player.</p>
+                <p>2. Points totaling 21 win the game.</p>
+                <p>3. If total of 21 is not reached, the person with total closest to 21 wins.</p>
+                <p>4. Hit will add an additional card to hand.</p>
+                <p>5. Stand means you aren't allowed to hit anymore.</p>
+                <p>6. Ace = 11 & Jack, Queen, Kings = 10</p>
+                <button class="button close-button">Close rules</button>
+            </div>
     </dialog>
 
 
     <div class="overlay">
-        <button id="newgame-btn">New Game</button>
         <div class="dealer">
             <h3 id="dealer-hand-text">Dealer Hand</h3>
             <h3 id="dealer"></h3>
@@ -36,7 +44,6 @@
             <button id="hit-d-btn">Hit Dealer</button>
             <button id="stand-d-btn">Stand Dealer</button>
         </div>
-        
         <div class="player">
             <h3 id="player-hand-text">Player Hand:</h3>
             <h3 id="player"></h3>

@@ -1,8 +1,9 @@
-* {
-}
+
 
 #blackjackTitle{
     text-align: center;
+    margin: 5px;
+    font-size: 35px;
 }
 
 body {
@@ -11,21 +12,54 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-
+    width: 700px;
+    font-family: 'Fredoka', sans-serif;
     display: block;
     margin: auto;
     text-align: center;
 }
 
+
+
 .overlay {
     border-radius: 600px;
     background-color: rgba(53, 101, 77, .8);
-    padding-top: 40px;
-    padding-bottom: 40px;;
+    padding-top: 10px;
+    padding-bottom: 30px;
 }
 
-.button {
-    background-color: green
+.button{
+    background-color: #D3D3D3;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
 }
 
+#modal {
+    font-size: 20px;
+}
+
+
+
+#newgame-btn, #hit-d-btn, #stand-d-btn, #hit-p-btn, #stand-p-btn {
+    background-color: #D3D3D3;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#newgame-btn{
+    margin-bottom: 5px;
+}
+
+#welcome{
+    /* background-color: rgba(255, 255, 255, .8); */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
