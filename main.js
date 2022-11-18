@@ -57,12 +57,12 @@ function deal(){
     playerInfo.hand = [drawRandomCard(), drawRandomCard()]
     dealer.innerText = 'Dealer Hand: ' + dealerInfo.hand;
     player.innerText = 'Player Hand: ' + playerInfo.hand;
-    
+
 } 
-deal();
+newGame.addEventListener('click', deal);
 
 
-
+//Function to calculate player total
 function calcPlayerTotal(){
     let playerTotal = 0
     for(i = 0; i < playerInfo.hand.length; i++){
@@ -74,12 +74,49 @@ function calcPlayerTotal(){
             playerTotal += parseInt(playerInfo.hand[i])
         }
         playerInfo.total = playerTotal
-    } return playerInfo.total
+    } playerT.innerText = 'Player Total: ' + playerInfo.total 
+    return playerInfo.total
+}
+newGame.addEventListener('click', calcPlayerTotal);
+
+
+//Function to calculate dealer total
+function calcDealerTotal(){
+    let dealerTotal = 0
+    for(i = 0; i < dealerInfo.hand.length; i++){
+        if (dealerInfo.hand[i].includes('J') || dealerInfo.hand[i].includes('Q') || dealerInfo.hand[i].includes('K')){
+            dealerTotal += 10;
+        } else if (dealerInfo.hand[i].includes('A')){
+            dealerTotal += 11;
+        } else {
+            dealerTotal += parseInt(dealerInfo.hand[i])
+        }
+        dealerInfo.total = dealerTotal
+    } 
+    dealerT.innerText = 'Dealer Total: ' + dealerInfo.total
+    return dealerInfo.total
+}
+newGame.addEventListener('click', calcDealerTotal);
+
+//Function that hits the player
+function hitPlayer(){
+    playerInfo.hand.push(drawRandomCard());
+    calcPlayerTotal();
+    player.innerText = 'Player Hand: ' + playerInfo.hand;
+    if(playerInfo.total > 21){
+        playerT.innerText = 'Player Total: Player went over 21! Dealer Wins.' 
+    }
 }
 
-
-
-
+//Function that hits the dealer
+function hitDealer(){
+    dealerInfo.hand.push(drawRandomCard());
+    calcDealerTotal();
+    dealer.innerText = 'Dealer Hand: ' + dealerInfo.hand;
+    if(dealerInfo.total > 21){
+        dealerT.innerText = 'Dealer Total: Dealer went over 21! Player Wins.' 
+    }
+}
 
 // let dealerTotal = 0;
 // //Function of adding dealer total and displaying it
