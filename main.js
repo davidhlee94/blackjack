@@ -6,10 +6,9 @@ const player = document.getElementById('player')
 const dealerT = document.getElementById('dealer-total')
 const playerT = document.getElementById('player-total')
 const hitPlayerBtn = document.getElementById('hit-p-btn')
-const stayPlayerBtn = document.getElementById('stay-p-btn')
+const standPlayerBtn = document.getElementById('stand-p-btn')
 const hitDealerBtn = document.getElementById('hit-d-btn')
-const stayDealerBtn = document.getElementById('stay-d-btn')
-const reset = document.getElementById('reset-btn')
+const standDealerBtn = document.getElementById('stand-d-btn')
 const newGame = document.getElementById('newgame-btn')
 
 
@@ -55,11 +54,13 @@ function drawRandomCard() {
 function deal(){
     dealerInfo.hand = [drawRandomCard(), drawRandomCard()]
     playerInfo.hand = [drawRandomCard(), drawRandomCard()]
-    dealer.innerText = 'Dealer Hand: ' + dealerInfo.hand;
-    player.innerText = 'Player Hand: ' + playerInfo.hand;
+    dealer.innerText = dealerInfo.hand;
+    player.innerText = playerInfo.hand;
 
 } 
 newGame.addEventListener('click', deal);
+
+
 
 
 //Function to calculate player total
@@ -74,7 +75,9 @@ function calcPlayerTotal(){
             playerTotal += parseInt(playerInfo.hand[i])
         }
         playerInfo.total = playerTotal
-    } playerT.innerText = 'Player Total: ' + playerInfo.total 
+    } playerT.innerText = playerInfo.total;
+    if (playerInfo.total === 21){
+        playerT.innerText = 'Blackjack 21! Player wins.'}
     return playerInfo.total
 }
 newGame.addEventListener('click', calcPlayerTotal);
@@ -92,8 +95,9 @@ function calcDealerTotal(){
             dealerTotal += parseInt(dealerInfo.hand[i])
         }
         dealerInfo.total = dealerTotal
-    } 
-    dealerT.innerText = 'Dealer Total: ' + dealerInfo.total
+    } dealerT.innerText = dealerInfo.total;
+    if (dealerInfo.total === 21){
+        dealerT.innerText = 'Blackjack 21! Dealer wins.'}
     return dealerInfo.total
 }
 newGame.addEventListener('click', calcDealerTotal);
@@ -102,21 +106,38 @@ newGame.addEventListener('click', calcDealerTotal);
 function hitPlayer(){
     playerInfo.hand.push(drawRandomCard());
     calcPlayerTotal();
-    player.innerText = 'Player Hand: ' + playerInfo.hand;
+    player.innerText = playerInfo.hand;
     if(playerInfo.total > 21){
-        playerT.innerText = 'Player Total: Player went over 21! Dealer Wins.' 
+        playerT.innerText = `Player busted at ${playerInfo.total}! Dealer wins.` 
+    } else if (playerInfo.total === 21){
+        playerT.innerText = 'Blackjack 21! Dealer Wins.' 
     }
 }
+hitPlayerBtn.addEventListener('click', hitPlayer)
 
 //Function that hits the dealer
 function hitDealer(){
     dealerInfo.hand.push(drawRandomCard());
     calcDealerTotal();
-    dealer.innerText = 'Dealer Hand: ' + dealerInfo.hand;
+    dealer.innerText = dealerInfo.hand;
     if(dealerInfo.total > 21){
-        dealerT.innerText = 'Dealer Total: Dealer went over 21! Player Wins.' 
+        dealerT.innerText = `Dealer busted at ${dealerInfo.total}! Player wins.` 
+    } else if (dealerInfo.total === 21){
+        dealerT.innerText = 'Blackjack 21! Dealer Wins.' 
     }
 }
+hitDealerBtn.addEventListener('click', hitDealer)
+
+
+function standPlayer() {
+    playerT.innerText = `Player stands at ${playerInfo.total}. Dealers turn.` 
+}
+standPlayerBtn.addEventListener('click', standPlayer);
+
+function standDealer() {
+    dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealers turn.` 
+}
+standDealerBtn.addEventListener('click', standDealer);
 
 // let dealerTotal = 0;
 // //Function of adding dealer total and displaying it

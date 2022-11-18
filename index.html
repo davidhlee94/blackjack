@@ -9,25 +9,56 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <div class="title">
-        <h1 id="blackjackTitle">BlackJack</h1>
-        <h4 id="dealer"></h4>
-        <h4 id="dealer-total"></h4>
-        <h4 id="player"></h4>
-        <h4 id="player-total"></h4>
+    <h1 id="blackjackTitle">
+        <span style="color:black">Black</span><span style="color: #D2042D">Jack</span>
+    </h1>
+
+
+    <button data-modal-target="#modal">Rules</button>
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">Rules of BlackJack</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        1. New game deals 2 cards to the dealer and the player.
+        2. Points totaling 21 win the game.
+        3. If total of 21 is not reached, the person with total closest to 21 wins.
+        4. Hit will add an additional card to hand.
+        5. Stand means you aren't allowed to hit anymore.
+        6. A is only equal to 11. Not 1. 
+
+      </div>
     </div>
-    
-    <div class="buttons">
+    <div id="overlay"></div>
+
+
+
+
+
+
+    <div class="transparent">
+        
         <button id="newgame-btn">New Game</button>
-        <button id="hit-p-btn">Hit Player</button>
-        <button id="stay-p-btn">Stay Player</button>
-        <button id="hit-d-btn">Hit Dealer</button>
-        <button id="stay-d-btn">Stay Dealer</button>
-        <button id="reset-btn">Reset</button>
+
+        <div class="dealer">
+            <h3 id="dealer-hand-text">Dealer Hand</h3>
+            <h3 id="dealer"></h3>
+            <h3 id="dealer-total-text">Dealer <span style="color: #D2042D">Total:</span></h3>
+            <h3 id="dealer-total"></h3>
+            <button id="hit-d-btn">Hit Dealer</button>
+            <button id="stand-d-btn">Stand Dealer</button>
+        </div>
+    
+        <div class="player">
+            <h3 id="player-hand-text">Player Hand:</h3>
+            <h3 id="player"></h3>
+            <h3 id="player-total-text">Player <span style="color: #D2042D">Total:</span></h3>
+            <h3 id="player-total"></h3>
+            <button id="hit-p-btn">Hit Player</button>
+            <button id="stand-p-btn">Stand Player</button>
+        </div>
     </div>
 
-    <div id="message-section">
-        <p id="message"></p>
-    </div>
 </body>
 </html>
