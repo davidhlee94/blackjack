@@ -12,11 +12,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
     font-family: 'Fredoka', sans-serif;
     display: block;
     margin: auto;
     text-align: center;
+    
 }
 
 
@@ -26,6 +26,8 @@ body {
     background-color: rgba(53, 101, 77, .8);
     padding-top: 10px;
     padding-bottom: 30px;
+    width: 900px;
+    height: auto;
 }
 
 .button{
@@ -58,8 +60,12 @@ body {
 }
 
 #welcome{
-    /* background-color: rgba(255, 255, 255, .8); */
     padding-top: 10px;
     padding-bottom: 10px;
-    
+    margin: 0;
+    padding: 0;
+}
+
+#welcome {
+    color: #d3af37;
 }

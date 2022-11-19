@@ -67,6 +67,8 @@ function deal(){
     playerInfo.hand = [drawRandomCard(), drawRandomCard()]
     dealer.innerText = dealerInfo.hand;
     player.innerText = playerInfo.hand;
+    didDealerStand = false;
+    didPlayerStand = false
 
 } 
 newGame.addEventListener('click', deal);
@@ -139,14 +141,53 @@ function hitDealer(){
 }
 hitDealerBtn.addEventListener('click', hitDealer)
 
-
+//Stand Player Function
+let didPlayerStand = false;
 function standPlayer() {
-    playerT.innerText = `Player stands at ${playerInfo.total}. Dealers turn.` 
+    didPlayerStand = true;
+    if(didDealerStand === true){
+        if(playerInfo.total > dealerInfo.total){
+            playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
+            dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
+        } else if(dealerInfo.total > playerInfo.total){
+            dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
+            playerT.innerText = `Player stands at ${playerInfo.total}.`
+            }
+    } else {
+    return playerT.innerText = `Player stands at ${playerInfo.total}. Dealers turn.`
+}
 }
 standPlayerBtn.addEventListener('click', standPlayer);
 
+
+//Stand Dealer Function
+let didDealerStand = false;
 function standDealer() {
-    dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealers turn.` 
+    didDealerStand = true;
+    if(didPlayerStand === true){
+        if(dealerInfo.total > playerInfo.total){
+            dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
+            playerT.innerText = `Player stands at ${playerInfo.total}.`
+        } else if(playerInfo.total > dealerInfo.total){
+            playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
+            dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
+            }
+    } else {
+    return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Players turn.` 
+}
 }
 standDealerBtn.addEventListener('click', standDealer);
 
+
+
+
+// function bothStands(){
+//     if(standPlayer() && standDealer()){
+//         if(playerInfo.total > dealerInfo.total){
+//             playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
+//         } else if(dealerInfo.total > playerInfo.total){
+//             dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
+//         }
+//     }
+// }
+// bothStands();
