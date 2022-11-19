@@ -125,11 +125,14 @@ function hitPlayer(){
     calcPlayerTotal();
     player.innerText = playerInfo.hand;
     if(playerInfo.total > 21){
-        playerT.innerText = `Player hits. Player busted at ${playerInfo.total}! Dealer wins.`
-        dealerT.innerText = `${dealerInfo.total}`
+        // dealerT.innerText = `${dealerInfo.total}`;
+        return playerT.innerText = `Player hits. Player busted at ${playerInfo.total}! Dealer wins.`
     } else if (playerInfo.total === 21){
-        playerT.innerText = 'BlackJack 21! Dealer Wins.' 
-    }
+        playerT.innerText = 'BlackJack 21! Player wins.' 
+    } else if (playerInfo.total < 21){
+        playerT.innerText = `Player hits. Player total is now ${playerInfo.total}.`
+    } 
+    return;
 }
 hitPlayerBtn.addEventListener('click', hitPlayer)
 
@@ -139,11 +142,16 @@ function hitDealer(){
     calcDealerTotal();
     dealer.innerText = dealerInfo.hand;
     if(dealerInfo.total > 21){
-        dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}! Player wins.`
         playerT.innerText = `${playerInfo.total}`
+        return dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}! Player wins.`
     } else if (dealerInfo.total === 21){
-        dealerT.innerText = 'BlackJack 21! Dealer Wins.' 
-    } 
+        playerT.innerText = `${playerInfo.total}`
+        return dealerT.innerText = 'BlackJack 21! Dealer wins.'
+    } else if (dealerInfo.total < 17){
+        hitDealer();
+    } else if (dealerInfo.total >= 17){
+        standDealer();
+    }
 }
 hitDealerBtn.addEventListener('click', hitDealer)
 
@@ -153,50 +161,64 @@ function standPlayer() {
     didPlayerStand = true;
     if(didDealerStand === true){
         if(playerInfo.total > dealerInfo.total){
-            playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
             dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
+            return playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
         } else if(dealerInfo.total > playerInfo.total){
-            dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
             playerT.innerText = `Player stands at ${playerInfo.total}.`
+            return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
             } else if(dealerInfo.total >= 17){
                 standDealer();
+                if(dealerInfo.total > playerInfo.total){
+                    return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
+                } else if (dealerinfo.total < playerInfo.total && dealerInfo.total < 21){
+                    return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Player wins`
+                }
             } else if(dealerInfo.total < 17){
                 hitDealer();
                 if(dealerInfo.total > 21){
-                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins`
+                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
                 } else if (dealerInfo.total < 17){
                     hitDealer();
                     if(dealerInfo.total > 21){
-                        return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins`
+                        return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
                     } else if(dealerInfo.total >= 17){
                         standDealer();
                     }
                 }
+            } else if (playerInfo.total === dealerInfo.total){
+                return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
             }
-    } else {
-        if(dealerInfo.total < 17){
+    } else if (dealerInfo.total < 17){
             hitDealer();
             if(dealerInfo.total > 21){
-                return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins`
+                return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
             } else if (dealerInfo.total < 17){
                 hitDealer();
                 if(dealerInfo.total > 21){
-                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins`
-                } else if(dealerInfo.total >= 17){
+                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
+                } else if (dealerInfo.total >= 17){
                     standDealer();
+                } else if (playerInfo.total === dealerInfo.total){
+                    return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
                 }
             }
-        } else if(dealerInfo.total >= 17){
+        } 
+        else if(dealerInfo.total >= 17){
             standDealer();
-            return playerT.innerText = `Player stands at ${playerInfo.total}.`
-        } if (playerInfo.total > dealerInfo.total){
-            playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
-        } else if (dealerInfo.total < playerInfo.total){
-            playerT.innerText = `Player stands at ${playerInfo.total}. Dealer wins.`
+            return dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
+        } 
+        else if (playerInfo.total > dealerInfo.total && playerInfo.total < 21){
+            return playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
+        } 
+        else if (dealerInfo.total < playerInfo.total && playerInfo.total < 21){
+            return playerT.innerText = `Player stands at ${playerInfo.total}. Dealer wins.`
+        } 
+        else if (playerInfo.total === dealerInfo.total){
+            return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
         }
         
 }
-}
+
 standPlayerBtn.addEventListener('click', standPlayer);
 
 
@@ -205,28 +227,37 @@ let didDealerStand = false;
 function standDealer() {
     didDealerStand = true;
     if(didPlayerStand === true){
-        if(dealerInfo.total > playerInfo.total){
+        if(dealerInfo.total > playerInfo.total && dealerInfo.total < 21){
             dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
-            playerT.innerText = `Player stands at ${playerInfo.total}.`
-        } else if(playerInfo.total > dealerInfo.total){
+            return playerT.innerText = `Player stands at ${playerInfo.total}.`
+        } else if(dealerInfo.total < playerInfo.total ){
             playerT.innerText = `Player stands at ${playerInfo.total}. Player wins.`
-            dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
+            return dealerT.innerText = `Dealer stands at ${dealerInfo.total}.`
             }
     } else {
-    return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Players turn.` 
+    return dealerT.innerText = `Dealer stands at ${dealerInfo.total}.` 
 }
 }
 standDealerBtn.addEventListener('click', standDealer)
 
 //Dealer Autopilot
 function dealerHitAuto() {
-    if(dealerInfo.total < 17 && dealerInfo.total > 0){
+    if (playerInfo.total < 17){
+        return dealerT.innerText = `${dealerInfo.total}.`
+    } else if(dealerInfo.total < 17 && dealerInfo.total > 0){
         hitDealer();
         if(playerInfo.total === 21){
             return dealerInfo.total
         }
     } else if (dealerInfo.total >= 17){
         standDealer();
+        if(dealerInfo.total < playerInfo.total && playerInfo.total < 21){
+            return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Player wins.`
+        } else if(dealerInfo.total > playerInfo.total && dealerInfo.total < 21){
+            return dealerT.innerText = `Dealer stands at ${dealerInfo.total}. Dealer wins.`
+        }
+    } else if (playerInfo.total > 21){
+        return playerT.innerText = `Player busted at ${playerInfo.total}. Dealer wins.`
     }
 }
 hitPlayerBtn.addEventListener('click', dealerHitAuto);
