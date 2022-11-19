@@ -28,6 +28,7 @@ body {
     padding-bottom: 30px;
     width: 900px;
     height: auto;
+    margin: -4px;
 }
 
 .button{
@@ -69,8 +70,8 @@ body {
 }
 
 
-#dealer, #player {
-    font-size: 30px;
+#dealer, #player{
+    font-size: 25px;
 }
 
 #homer {
@@ -86,4 +87,11 @@ body {
 .die{
     height: auto;
     width: 60px;
+}
+
+#homerdealer{
+    width: auto;
+    height: 150px;
+    margin: 0;
+    padding: 0;
 }
