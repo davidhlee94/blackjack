@@ -65,6 +65,8 @@ function drawRandomCard() {
     return card
 }
 
+
+
 //Function of dealing cards to each hand
 function deal(){
     dealerInfo.hand = [drawRandomCard(), drawRandomCard()]
@@ -77,14 +79,7 @@ function deal(){
 } 
 newGame.addEventListener('click', deal);
 
-//Make color red
-function makeRed(){
-    for (j = 0; j < playerInfo.hand.length; j++){
-        if (playerInfo.hand[j].includes('♦') || playerInfo.hand[j].includes('♥')){
-            player.setAttribute("red")
-        }
-    } console.log(playerInfo.hand)
-} 
+
 
 //Function to calculate player total
 function calcPlayerTotal(){
@@ -98,12 +93,17 @@ function calcPlayerTotal(){
             playerTotal += parseInt(playerInfo.hand[i])
         }
         playerInfo.total = playerTotal
-    } playerT.innerText = playerInfo.total;
+    } 
+    playerT.innerText = playerInfo.total;
     if (playerInfo.total === 21){
         playerT.innerText = 'BlackJack 21! Player wins.'}
+    else if (playerInfo.total > 21){
+        return playerT.innerText = `Player busted at ${playerInfo.total}.`
+    }
     return playerInfo.total
 }
 newGame.addEventListener('click', calcPlayerTotal);
+
 
 
 //Function to calculate dealer total
@@ -123,26 +123,31 @@ function calcDealerTotal(){
         dealerT.innerText = 'BlackJack 21! Dealer wins.'}
     else if (didPlayerStand === true && playerInfo.total === dealerInfo.total){
             return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
-    }
+    } else if (dealerInfo.total > 21){ 
+        return `Dealer busted at ${dealerInfo.total}.`}
 }
 newGame.addEventListener('click', calcDealerTotal);
 
+
+
 //Function that hits the player
 function hitPlayer(){
+    // debugger
     playerInfo.hand.push(drawRandomCard());
     calcPlayerTotal();
     player.innerText = playerInfo.hand;
     if(playerInfo.total > 21){
-        // dealerT.innerText = `${dealerInfo.total}`;
         return playerT.innerText = `Player hits. Player busted at ${playerInfo.total}! Dealer wins.`
     } else if (playerInfo.total === 21){
-        playerT.innerText = 'BlackJack 21! Player wins.' 
+        return playerT.innerText = 'BlackJack 21! Player wins.' 
     } else if (playerInfo.total < 21){
-        playerT.innerText = `Player hits. Player total is now ${playerInfo.total}.`
+        return playerT.innerText = `Player hits. Player total is now ${playerInfo.total}.`
     } 
     return;
 }
 hitPlayerBtn.addEventListener('click', hitPlayer)
+
+
 
 //Function that hits the dealer
 function hitDealer(){
@@ -155,18 +160,15 @@ function hitDealer(){
     } else if (dealerInfo.total === 21){
         playerT.innerText = `${playerInfo.total}`
         return dealerT.innerText = 'BlackJack 21! Dealer wins.'
-    } else if (dealerInfo.total < 17){
-        hitDealer();
-    } else if (dealerInfo.total >= 17){
-        standDealer();
     }
 }
 hitDealerBtn.addEventListener('click', hitDealer)
 
+
+
 //Stand Player Function
 let didPlayerStand = false;
 function standPlayer() {
-    debugger
     didPlayerStand = true;
     if(didDealerStand === true){
         if(playerInfo.total > dealerInfo.total){
@@ -187,11 +189,11 @@ function standPlayer() {
         } else if(dealerInfo.total < 17){
                 hitDealer();
                 if(dealerInfo.total > 21){
-                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
+                    return dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}. Player wins.`
                 } else if (dealerInfo.total < 17){
                     hitDealer();
                     if(dealerInfo.total > 21){
-                        return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
+                        return dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}. Player wins.`
                     } 
                     else if(dealerInfo.total >= 17){
                         standDealer();
@@ -203,12 +205,12 @@ function standPlayer() {
     else if (dealerInfo.total < 17){
             hitDealer();
             if(dealerInfo.total > 21){
-                return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
+                return dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}. Player wins.`
             }
             else if (dealerInfo.total < 17){
                 hitDealer();
                 if(dealerInfo.total > 21){
-                    return dealerT.innerText = `Dealer busted at ${dealerInfo.total}. Player wins.`
+                    return dealerT.innerText = `Dealer hits. Dealer busted at ${dealerInfo.total}. Player wins.`
                 } else if (dealerInfo.total >= 17){
                     standDealer();
                 } else if (playerInfo.total === dealerInfo.total){
@@ -233,8 +235,8 @@ function standPlayer() {
         }
         
 }
-
 standPlayerBtn.addEventListener('click', standPlayer);
+
 
 
 //Stand Dealer Function
@@ -255,11 +257,16 @@ function standDealer() {
 }
 standDealerBtn.addEventListener('click', standDealer)
 
-//Dealer Autopilot
+
+
+//Dealer Autopilot Hit
 function dealerHitAuto() {
     if (playerInfo.total < 17){
         return dealerT.innerText = `${dealerInfo.total}`
-    } else if(dealerInfo.total < 17 && dealerInfo.total > 0){
+    } else if (playerInfo.total > 21 && dealerInfo.total < 21){
+        return dealerT.innerText = `${dealerInfo.total}`
+    } 
+    else if(dealerInfo.total < 17 && dealerInfo.total > 0){
         hitDealer();
         if(playerInfo.total === 21){
             return dealerInfo.total
@@ -277,6 +284,8 @@ function dealerHitAuto() {
 }
 hitPlayerBtn.addEventListener('click', dealerHitAuto);
 
+
+//Dealer Autopilot Stand
 function dealerStandAuto(){
     if(didPlayerStand === true && dealerInfo.total < 17 && dealerInfo.total > 0){
         hitDealer();
