@@ -6,9 +6,9 @@ Homer's Casino BlackJack
 Screenshots of the game:
 
 Technologies Used:
--HTML
--CSS
--Javascript
+<p>-HTML
+<p>-CSS
+<p>-Javascript
 
 Link to my game:
 
