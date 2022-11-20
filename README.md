@@ -1,14 +1,14 @@
 
 <p>Game Title:
-<h1>Homer's Casino BlackJack
+<h1>Homer's Casino BlackJack</h1>
 
 
 Screenshots of the game:
 
 Technologies Used:
-<p>-HTML
-<p>-CSS
-<p>-Javascript
+<p>-HTML</p>
+<p>-CSS</p>
+<p>-Javascript</p>
 
 Link to my game:
 
