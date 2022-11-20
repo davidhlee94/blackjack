@@ -6,8 +6,8 @@
 <h4>📷Screenshots of the game📷</h4>
 
 <p>
-<img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
-<img img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
+<img width="auto" height="300" src="https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
+<img img width="auto" height="300" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
 </p>
 
 <br>
@@ -15,8 +15,9 @@
 <p>-HTML</p>
 <p>-CSS</p>
 <p>-Javascript</p>
-
+<br>
 <h4>Link to my game:</h4>
+<p>https://davidhlee94.github.io/blackjack/</p>
 
 <br>
 <h4>📖Instructions📖</h4>
