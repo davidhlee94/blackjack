@@ -1,6 +1,6 @@
 
-Game Title:
-Homer's Casino BlackJack
+<p>Game Title:
+<h1>Homer's Casino BlackJack
 
 
 Screenshots of the game:
