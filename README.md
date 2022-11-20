@@ -1,9 +1,11 @@
 
-<p>Game Title:
-<h4>Homer's Casino BlackJack</h4>
+<h4>Game Title:</h4>
+<p>Homer's Casino BlackJack</p>
 
 
 <h4>Screenshots of the game:</h4>
+<img img width="200" height="auto" src=”https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
+<img width="200" height="auto" src=”https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
 
 <h4>Technologies Used:</h4>
 <p>-HTML</p>
