@@ -5,8 +5,8 @@
 
 <h4>Screenshots of the game:</h4>
 
-<p><img img width="200" height="auto" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
-<img width="200" height="auto" src="https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
+<p><img img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
+<img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
 </p>
 
 <h4>Technologies Used:</h4>
