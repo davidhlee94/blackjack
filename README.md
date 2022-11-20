@@ -1,20 +1,20 @@
 
 <p>Game Title:
-<h1>Homer's Casino BlackJack</h1>
+<h4>Homer's Casino BlackJack</h4>
 
 
-Screenshots of the game:
+<h4>Screenshots of the game:</h4>
 
-Technologies Used:
+<h4>Technologies Used:</h4>
 <p>-HTML</p>
 <p>-CSS</p>
 <p>-Javascript</p>
 
-Link to my game:
+<h4>Link to my game:</h4>
 
 
-Instructions:
-Welcome to Homer's Casino BlackJack! Here are the rules for the game!
+<h4>Instructions:</h4>
+<p>Welcome to Homer's Casino BlackJack! Here are the rules for the game!</p>
 
 1. New game deals 2 cards to the dealer and the player.
 
@@ -31,7 +31,7 @@ Welcome to Homer's Casino BlackJack! Here are the rules for the game!
 7. Best of luck! Have fun!
 
 
-Future Enhancements:
+<h4>Future Enhancements:</h4>
 
 1. Currently all cards and suits are displayed as black. Next update should have diamonds and hearts as red to provide for a more realistic experience. 
 
@@ -39,7 +39,7 @@ Future Enhancements:
 
 
 
-Resources Used for Inspiration:
+<h4>Resources Used for Inspiration:</h4>
 
 1. dialog = the easiest way to make a popup modal by Kevin Powell:
 https://www.youtube.com/watch?v=TAB_v6yBXIE
@@ -52,3 +52,4 @@ https://www.youtube.com/watch?v=bMYCWccL-3U&t=1345s
 
 4. Image Hover Text Overlay Effect with HTML & CSS - Web Design Tutorial by dcode: https://www.youtube.com/watch?v=exb2ab72Xhs&t=125s
 
+5. How to Create a Beautiful README for Your GitHub Profile by Yu Shi: How to Create a Beautiful README for Your GitHub Profile
