@@ -1,23 +1,25 @@
 
-<h4>Game Title:</h4>
+<h4>👾Game Title👾</h4>
 <p>Homer's Casino BlackJack</p>
 
 
-<h4>Screenshots of the game:</h4>
+<h4>📷Screenshots of the game📷</h4>
 
-<p><img img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
+<p>
 <img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928965-3ef240b0-e520-42ec-b23b-59e781377137.png" alt=”blackjack”>
+<img img width="400" height="auto" src="https://user-images.githubusercontent.com/112284075/202928920-2b276278-9b57-45e9-8367-a28a238515d2.png" alt=”rules”>
 </p>
 
-<h4>Technologies Used:</h4>
+<br>
+<h4>👨‍💻Technologies Used👨‍💻</h4>
 <p>-HTML</p>
 <p>-CSS</p>
 <p>-Javascript</p>
 
 <h4>Link to my game:</h4>
 
-
-<h4>Instructions:</h4>
+<br>
+<h4>📖Instructions📖</h4>
 <p>Welcome to Homer's Casino BlackJack! Here are the rules for the game!</p>
 
 1. New game deals 2 cards to the dealer and the player.
@@ -34,16 +36,16 @@
 
 7. Best of luck! Have fun!
 
-
-<h4>Future Enhancements:</h4>
+<br>
+<h4>🔮Future Enhancements🔮</h4>
 
 1. Currently all cards and suits are displayed as black. Next update should have diamonds and hearts as red to provide for a more realistic experience. 
 
 2. There may still be some minor bugs depending on the conditional route the player takes. If there are bugs, please report them and we will be sure to add it to the next update. 
 
 
-
-<h4>Resources Used for Inspiration:</h4>
+<br>
+<h4>📰 Resources Used for Inspiration📰 </h4>
 
 1. dialog = the easiest way to make a popup modal by Kevin Powell:
 https://www.youtube.com/watch?v=TAB_v6yBXIE
