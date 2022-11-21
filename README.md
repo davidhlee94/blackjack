@@ -63,4 +63,4 @@ https://www.youtube.com/watch?v=bMYCWccL-3U&t=1345s
 
 4. Image Hover Text Overlay Effect with HTML & CSS - Web Design Tutorial by dcode: https://www.youtube.com/watch?v=exb2ab72Xhs&t=125s
 
-5. How to Create a Beautiful README for Your GitHub Profile by Yu Shi: How to Create a Beautiful README for Your GitHub Profile
+5. How to Create a Beautiful README for Your GitHub Profile by Yu Shi: https://yushi95.medium.com/how-to-create-a-beautiful-readme-for-your-github-profile-36957caa711c
