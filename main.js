@@ -99,7 +99,7 @@ function calcPlayerTotal(){
     else if (playerInfo.total > 21){
         return playerT.innerText = `Player busted at ${playerInfo.total}.`
     }
-    return playerInfo.total
+    return playerInfo.total;
 }
 newGame.addEventListener('click', calcPlayerTotal);
 
@@ -125,7 +125,9 @@ function calcDealerTotal(){
             return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
     } 
     else if (dealerInfo.total > 21){ 
-        return `Dealer busted at ${dealerInfo.total}.`}
+        return `Dealer busted at ${dealerInfo.total}.`
+    }
+        return dealerInfo.total;
 }
 newGame.addEventListener('click', calcDealerTotal);
 
