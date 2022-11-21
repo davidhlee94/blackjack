@@ -18,7 +18,7 @@ const closeModal = document.querySelector('.close-button')
 document.getElementById('hit-d-btn').style.visibility = 'hidden'
 document.getElementById('stand-d-btn').style.visibility = 'hidden'
 
-
+//Event listeners for the modals
 openModal.addEventListener('click', () => {
     modal.showModal();
 })
@@ -74,8 +74,7 @@ function deal(){
     dealer.innerText = dealerInfo.hand;
     player.innerText = playerInfo.hand;
     didDealerStand = false;
-    didPlayerStand = false
-
+    didPlayerStand = false;
 } 
 newGame.addEventListener('click', deal);
 
@@ -83,7 +82,7 @@ newGame.addEventListener('click', deal);
 
 //Function to calculate player total
 function calcPlayerTotal(){
-    let playerTotal = 0
+    let playerTotal = 0;
     for(i = 0; i < playerInfo.hand.length; i++){
         if (playerInfo.hand[i].includes('J') || playerInfo.hand[i].includes('Q') || playerInfo.hand[i].includes('K')){
             playerTotal += 10;
@@ -132,7 +131,6 @@ newGame.addEventListener('click', calcDealerTotal);
 
 //Function that hits the player
 function hitPlayer(){
-    // debugger
     playerInfo.hand.push(drawRandomCard());
     calcPlayerTotal();
     player.innerText = playerInfo.hand;
