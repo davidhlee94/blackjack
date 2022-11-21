@@ -42,7 +42,11 @@
 
 1. Currently all cards and suits are displayed as black. Next update should have diamonds and hearts as red to provide for a more realistic experience. 
 
-2. There may still be some minor bugs depending on the conditional route the player takes. If there are bugs, please report them and we will be sure to add it to the next update. 
+2. Game scoring to see how many games player and dealer has won.
+
+3. Stop a hit after someone has won. Currently, after the player or dealer has won the hit button will continue to add to hand.
+
+4. There may still be some minor bugs depending on the conditional route the player takes. If there are bugs, please report them and we will be sure to add it to the next update. 
 
 
 <br>
