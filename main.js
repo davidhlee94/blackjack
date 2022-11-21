@@ -92,7 +92,7 @@ function calcPlayerTotal(){
             playerTotal += parseInt(playerInfo.hand[i])
         }
         playerInfo.total = playerTotal
-    } 
+    };
     playerT.innerText = playerInfo.total;
     if (playerInfo.total === 21){
         playerT.innerText = 'BlackJack 21! Player wins.'}
@@ -117,12 +117,14 @@ function calcDealerTotal(){
             dealerTotal += parseInt(dealerInfo.hand[i])
         }
         dealerInfo.total = dealerTotal
-    } dealerT.innerText = dealerInfo.total;
+    };
+    dealerT.innerText = dealerInfo.total;
     if (dealerInfo.total === 21){
         dealerT.innerText = 'BlackJack 21! Dealer wins.'}
     else if (didPlayerStand === true && playerInfo.total === dealerInfo.total){
             return dealerT.innerText = `Dealer and Player tie at ${dealerInfo.total}.`
-    } else if (dealerInfo.total > 21){ 
+    } 
+    else if (dealerInfo.total > 21){ 
         return `Dealer busted at ${dealerInfo.total}.`}
 }
 newGame.addEventListener('click', calcDealerTotal);
